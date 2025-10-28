@@ -26,7 +26,6 @@ export function Option({
 				size={20}
 				color={variant === 'primary' ? colors.green[300] : colors.gray[400]}
 			/>
-
 			<Text
 				style={
 					variant === 'primary' ? styles.primaryTitle : styles.secondaryTitle

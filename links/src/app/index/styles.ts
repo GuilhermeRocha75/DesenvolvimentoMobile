@@ -7,12 +7,12 @@ export const styles = StyleSheet.create({
 		paddingTop: 42,
 	},
 	header: {
+		marginBottom: 32,
+		paddingHorizontal: 24,
 		width: '100%',
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',
-		paddingHorizontal: 24,
-		marginBottom: 32,
 	},
 	logo: {
 		width: 32,
@@ -51,21 +51,21 @@ export const styles = StyleSheet.create({
 		color: colors.gray[400],
 	},
 	modalLinkName: {
-		fontSize: 18,
-		fontWeight: '600',
-		color: colors.gray[200],
+		fontSize: 16,
+		fontWeight: '500',
+		color: colors.gray[400],
 	},
 	modalUrl: {
 		fontSize: 14,
 		color: colors.gray[400],
 	},
 	modalFooter: {
-		width: '100%',
-		marginTop: 32,
 		flexDirection: 'row',
+		marginTop: 32,
+		width: '100%',
 		justifyContent: 'space-between',
 		borderTopWidth: 1,
 		borderTopColor: colors.gray[600],
-		paddingVertical: 14,
+		paddingVertical: 18,
 	},
 })

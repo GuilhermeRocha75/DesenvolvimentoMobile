@@ -1,43 +1,44 @@
+import { MaterialIcons } from '@expo/vector-icons'
+import { router } from 'expo-router'
+import { useState } from 'react'
+import { Alert, Text, TouchableOpacity, View } from 'react-native'
 import { Button } from '@/components/button'
 import { Categories } from '@/components/categories'
 import { Input } from '@/components/input'
 import { linkStorage } from '@/storage/link-storage'
 import { colors } from '@/styles/colors'
-import { MaterialIcons } from '@expo/vector-icons'
-import { router } from 'expo-router'
-import { useState } from 'react'
-import { Alert, Text, TouchableOpacity, View } from 'react-native'
 import { styles } from './styles'
 
 export default function Add() {
 	const [category, setCategory] = useState('')
 	const [name, setName] = useState('')
-	const [link, setLink] = useState('')
+	const [url, setUrl] = useState('')
 
 	async function handleAdd() {
 		try {
 			if (!category.trim()) {
 				return Alert.alert('Categoria', 'Selecione a categoria')
 			}
-
 			if (!name.trim()) {
 				return Alert.alert('Nome', 'Informe o nome')
 			}
-
-			if (!link.trim()) {
+			if (!url.trim()) {
 				return Alert.alert('URL', 'Informe a URL')
 			}
 
 			await linkStorage.save({
-				id: Date.now().toString(),
+				id: new Date().getTime().toString(),
 				name,
-				link,
+				url,
 				category,
 			})
 
-			const data = await linkStorage.get()
-
-			console.log(data)
+			Alert.alert('Sucesso', 'Novo link adicionado', [
+				{
+					text: 'Ok',
+					onPress: () => router.back(),
+				},
+			])
 		} catch (error) {
 			Alert.alert('Erro', 'Não foi possível salvar o link')
 			console.log(error)
@@ -55,14 +56,13 @@ export default function Add() {
 			</View>
 
 			<Text style={styles.label}>Selecione uma categoria</Text>
-
 			<Categories onChange={setCategory} selected={category} />
 
 			<View style={styles.form}>
 				<Input placeholder="Nome" onChangeText={setName} autoCorrect={false} />
 				<Input
-					placeholder="Link"
-					onChangeText={setLink}
+					placeholder="URL"
+					onChangeText={setUrl}
 					autoCorrect={false}
 					autoCapitalize="none"
 				/>

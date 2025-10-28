@@ -9,11 +9,12 @@ export const styles = StyleSheet.create({
 	},
 	primaryTitle: {
 		color: colors.green[300],
-		fontSize: 16,
+		fontSize: 14,
 		fontWeight: '600',
 	},
 	secondaryTitle: {
 		color: colors.gray[400],
-		fontSize: 16,
+		fontSize: 14,
+		fontWeight: '500',
 	},
 })

@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
 	name: {
 		color: colors.gray[100],
 		fontSize: 16,
-		fontWeight: '600',
+		fontWeight: 'medium',
 	},
 	url: {
 		color: colors.gray[400],
